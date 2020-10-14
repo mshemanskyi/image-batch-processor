@@ -20,8 +20,13 @@ class ImagesWatcher:
         for filename in os.listdir(self.__src_path):
             filePath = os.path.join(self.__src_path, filename)
 
-            ImageProcessor.find_contours(self, filePath, self.params)
+            ImageProcessor.threshold(self, filePath, self.params)
             original_path = os.path.join(os.getcwd(), os.path.join('original', filename))
+
+        print(self.params['listen'])
+        if not self.params['listen']:
+            #self.stop()
+            sys.exit(2)
 
         self.start()
 
@@ -86,6 +91,7 @@ def main():
     threshAdaptiveMethod = ""
     threshType = ""
     thresholdConstant = ""
+    listen = False
 
     for opt, arg in opts:
         if opt in ('-h', "--help"):
@@ -103,6 +109,8 @@ def main():
             threshType = arg
         elif opt in ("--thresholdConstant"):
             thresholdConstant = arg
+        elif opt in ("--listen"):
+            listen = arg
 
 
     params = {
@@ -112,6 +120,7 @@ def main():
         'threshAdaptiveMethod': threshAdaptiveMethod if threshAdaptiveMethod else "ADAPTIVE_THRESH_MEAN_C",
         'threshType': threshType if threshType else "THRESH_BINARY",
         'thresholdConstant': thresholdConstant if thresholdConstant else 2,
+        'listen': listen if listen else False
     }
 
     print('params:')
