@@ -50,33 +50,6 @@ class ImagesWatcher:
             recursive=True
         )
 
-def runFromUI(blur, threshold, path, uiValues):
-    blur = blur if blur else "5"
-    threshold = threshold if threshold else "11"
-
-    params = {
-        'path': path if path else "input",
-        'blur': int(blur),
-        'threshold': int(threshold),
-        'threshAdaptiveMethod': uiValues['threshAdaptiveMethod'],
-        'threshType': uiValues['threshType'],
-        'contAlgorithm': uiValues['contAlgorithm'],
-        'debugThreshold': uiValues['debugThreshold'],
-        'debugTrashLevel': uiValues['debugTrashLevel'],
-        'filledContours': uiValues['filledContours'],
-        'threshConstant': int(uiValues['threshConstant']),
-
-        'saveOriginal': uiValues['saveOriginal'],
-
-    }
-
-    print('params:')
-    for param in params:
-        print(param + '=' +str(params[param]))
-    print('_______')
-
-    ImagesWatcher(params).run()
-
 def main():
     try:
         opts, args = getopt.getopt(sys.argv[1:], "h:p:b:t:", ["path=", "blur=", "threshold="])
