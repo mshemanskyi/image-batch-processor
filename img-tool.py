@@ -81,7 +81,7 @@ def main():
     try:
         opts, args = getopt.getopt(sys.argv[1:], "h:p:b:t:", ["path=", "blur=", "threshold="])
     except getopt.GetoptError:
-        print("kontur_watcher.py -p <folder> -b 5 -t 11")
+        print("img-tool.py -p <folder> -b 5 -t 11")
         sys.exit(2)
 
     path = ""
@@ -94,7 +94,7 @@ def main():
 
     for opt, arg in opts:
         if opt in ('-h', "--help"):
-            print("kontur_watcher.py -p <folder> -b 5 -t 11")
+            print("img-tool.py -p <folder> -b 5 -t 11")
             sys.exit(2)
         elif opt in ("--path"):
             path = arg
