@@ -5,9 +5,9 @@ from images_watcher import ImagesWatcher
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "h:p:b:t:", ["path=", "blur=", "threshold="])
-    except getopt.GetoptError:
-        print("img-tool.py -p <folder> -b 5 -t 11")
+        opts, args = getopt.getopt(sys.argv[1:], "", ["path=", "blur=", "threshold=", "watch", "extension="])
+    except getopt.GetoptError as err:
+        print(err)
         sys.exit(2)
 
     path = ""
@@ -16,11 +16,13 @@ def main():
     threshAdaptiveMethod = ""
     threshType = ""
     thresholdConstant = ""
-    listen = False
+    watch = False
+    extension = ""
 
     for opt, arg in opts:
+        print(opts)
         if opt in ('-h', "--help"):
-            print("img-tool.py -p <folder> -b 5 -t 11")
+            print("img-tool.py -path <folder> ")
             sys.exit(2)
         elif opt in ("--path"):
             path = arg
@@ -34,8 +36,10 @@ def main():
             threshType = arg
         elif opt in ("--thresholdConstant"):
             thresholdConstant = arg
-        elif opt in ("--listen"):
-            listen = arg
+        elif opt in ("--watch"):
+            watch = True
+        elif opt in ("--extension"):
+            extension = arg
 
 
     params = {
@@ -45,7 +49,8 @@ def main():
         'threshAdaptiveMethod': threshAdaptiveMethod if threshAdaptiveMethod else "ADAPTIVE_THRESH_MEAN_C",
         'threshType': threshType if threshType else "THRESH_BINARY",
         'thresholdConstant': thresholdConstant if thresholdConstant else 2,
-        'listen': listen if listen else False
+        'watch': watch if watch else False,
+        'extension': extension if extension else "png"
     }
 
     print('params:')

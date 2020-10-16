@@ -1,7 +1,6 @@
 import sys
 import time
 import os
-import getopt
 
 from watchdog.observers import Observer
 from events_handler import ImagesEventHandler
@@ -19,12 +18,11 @@ class ImagesWatcher:
         for filename in os.listdir(self.__src_path):
             filePath = os.path.join(self.__src_path, filename)
 
-            ImageProcessor.threshold(self, filePath, self.params)
+            ImageProcessor.do(self, filePath, self.params)
             original_path = os.path.join(os.getcwd(), os.path.join('original', filename))
 
-        print(self.params['listen'])
-        if not self.params['listen']:
-            #self.stop()
+        print(self.params['watch'])
+        if not self.params['watch']:
             sys.exit(2)
 
         self.start()
@@ -49,57 +47,3 @@ class ImagesWatcher:
             self.__src_path,
             recursive=True
         )
-
-def main():
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], "h:p:b:t:", ["path=", "blur=", "threshold="])
-    except getopt.GetoptError:
-        print("img-tool.py -p <folder> -b 5 -t 11")
-        sys.exit(2)
-
-    path = ""
-    blur = ""
-    threshold = ""
-    threshAdaptiveMethod = ""
-    threshType = ""
-    thresholdConstant = ""
-    listen = False
-
-    for opt, arg in opts:
-        if opt in ('-h', "--help"):
-            print("img-tool.py -p <folder> -b 5 -t 11")
-            sys.exit(2)
-        elif opt in ("--path"):
-            path = arg
-        elif opt in ("--blur"):
-            blur = arg
-        elif opt in ("--threshold"):
-            threshold = arg
-        elif opt in ("--threshAdaptiveMethod"):
-            threshAdaptiveMethod = arg
-        elif opt in ("--threshType"):
-            threshType = arg
-        elif opt in ("--thresholdConstant"):
-            thresholdConstant = arg
-        elif opt in ("--listen"):
-            listen = arg
-
-
-    params = {
-        'path': path if path else "input",
-        'blur': blur if blur else 5,
-        'threshold': threshold if threshold else 11,
-        'threshAdaptiveMethod': threshAdaptiveMethod if threshAdaptiveMethod else "ADAPTIVE_THRESH_MEAN_C",
-        'threshType': threshType if threshType else "THRESH_BINARY",
-        'thresholdConstant': thresholdConstant if thresholdConstant else 2,
-        'listen': listen if listen else False
-    }
-
-    print('params:')
-    print(params)
-    print('_______')
-
-    ImagesWatcher(params).run()
-
-if __name__ == "__main__":
-    main()
