@@ -19,4 +19,4 @@ class ImagesEventHandler(RegexMatchingEventHandler):
 
     def process(self, event):
         #process image
-        ImageProcessor.threshold(self, event.src_path, self.params)
+        ImageProcessor.do(self, event.src_path, self.params)
