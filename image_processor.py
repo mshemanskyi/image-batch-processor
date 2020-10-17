@@ -40,7 +40,7 @@ class ImageProcessor():
             name = filename[filename.rfind("/") +1:] + '.' + extension
 
         outputFileName =  os.path.join(os.getcwd(), os.path.join('output', name))
-        cv.imwrite(outputFileName, img)
+        cv.imwrite(outputFileName, processedImage)
 
         # Check if it Windows OS and build specific path
         if os.name == 'nt':
