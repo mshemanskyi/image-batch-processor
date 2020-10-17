@@ -5,7 +5,7 @@ from images_watcher import ImagesWatcher
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "", ["path=", "blur=", "threshold=", "watch", "extension="])
+        opts, args = getopt.getopt(sys.argv[1:], "", ["path=", "blur=", "threshold=", "watch", "extension=", "action="])
     except getopt.GetoptError as err:
         print(err)
         sys.exit(2)
@@ -18,6 +18,7 @@ def main():
     thresholdConstant = ""
     watch = False
     extension = ""
+    action = ""
 
     for opt, arg in opts:
         print(opts)
@@ -40,6 +41,8 @@ def main():
             watch = True
         elif opt in ("--extension"):
             extension = arg
+        elif opt in ("--action"):
+            action = arg
 
 
     params = {
@@ -50,7 +53,8 @@ def main():
         'threshType': threshType if threshType else "THRESH_BINARY",
         'thresholdConstant': thresholdConstant if thresholdConstant else 2,
         'watch': watch if watch else False,
-        'extension': extension if extension else "png"
+        'extension': extension if extension else "png",
+        'action': action if action else "default"
     }
 
     print('params:')
