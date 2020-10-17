@@ -17,13 +17,14 @@ class ImageProcessor():
         threshType = params['threshType']
         ThreshConstant = int(params['thresholdConstant'])
         extension = params['extension']
+        action = params['action']
 
         saveOriginal = False
 
-        # (RGB)
-        thresholdImg = thresholdImage(img, blur, threshold, threshAdaptiveMethod, threshType, ThreshConstant)
-
-
+        if action == "threshold":
+            processedImage = thresholdImage(img, blur, threshold, threshAdaptiveMethod, threshType, ThreshConstant)
+        else:
+            processedImage = img
         ##### func end
 
 
@@ -33,20 +34,13 @@ class ImageProcessor():
 
         # Check if it Windows OS and build specific path
         if os.name == 'nt':
-            name = filename[filename.rfind("\\") +1:] + '_' + time + '.' + extension
-            thresName = filename[filename.rfind("\\") +1:] + '_THRESH_' + time + '.' + extension
+            name = filename[filename.rfind("\\") +1:] + '.' + extension
             print('Windows: output file name: ' + name)
         else:
-            name = filename[filename.rfind("/") +1:] + '_' + time + '.' + extension
-            thresName = filename[filename.rfind("/") +1:] + '_THRESH_' + time + '.' + extension
+            name = filename[filename.rfind("/") +1:] + '.' + extension
 
         outputFileName =  os.path.join(os.getcwd(), os.path.join('output', name))
-        outputThreshFileName =  os.path.join(os.getcwd(), os.path.join('output', thresName))
         cv.imwrite(outputFileName, img)
-
-
-        print("file saved! path: " + outputFileName)
-        cv.imwrite(outputThreshFileName, thresholdImg)
 
         # Check if it Windows OS and build specific path
         if os.name == 'nt':
