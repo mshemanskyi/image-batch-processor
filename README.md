@@ -14,7 +14,13 @@ Functions:
 
 *TBD
 
-[TOC]
+
+
+- [Install](#install)
+- [Run](#run)
+    - [Change image file format](#change-image-file-format)
+    - [Threshold](#threshold)
+- [Dependencies](#dependencies)
 
 ## Install
 pip3 install -r requirements.txt
