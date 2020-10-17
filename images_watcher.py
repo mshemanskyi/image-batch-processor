@@ -19,7 +19,6 @@ class ImagesWatcher:
             filePath = os.path.join(self.__src_path, filename)
 
             ImageProcessor.do(self, filePath, self.params)
-            original_path = os.path.join(os.getcwd(), os.path.join('original', filename))
 
         print(self.params['watch'])
         if not self.params['watch']:

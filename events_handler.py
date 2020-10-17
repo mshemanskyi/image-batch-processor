@@ -18,5 +18,4 @@ class ImagesEventHandler(RegexMatchingEventHandler):
         self.process(event)
 
     def process(self, event):
-        #process image
         ImageProcessor.do(self, event.src_path, self.params)
