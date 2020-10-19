@@ -2,6 +2,7 @@
 import os
 from datetime import datetime
 from action.threshold import thresholdImage
+from action.blur import blurImage
 
 class ImageProcessor():
 
@@ -23,6 +24,8 @@ class ImageProcessor():
 
         if action == "threshold":
             processedImage = thresholdImage(img, blur, threshold, threshAdaptiveMethod, threshType, ThreshConstant)
+        elif action == "blur":
+            processedImage = blurImage(img, blur)
         else:
             processedImage = img
         ##### func end
