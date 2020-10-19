@@ -4,7 +4,7 @@ CLI tool for batch processing images with ability to listen directory for the ne
 Functions:
 - change image file format
 - threshold
-- blur*
+- blur
 - resize*
 - grayscale*
 - rotate*
@@ -20,6 +20,7 @@ Functions:
 - [Run](#run)
     - [Change image file format](#change-image-file-format)
     - [Threshold](#threshold)
+    - [Blur](#blur)
 - [Dependencies](#dependencies)
 
 ## Install
@@ -48,6 +49,10 @@ Available formats:
 **python imgtool.py --action=threshold**  - threshhold images.
 default threshold value is 11, to set another value use flag **--threshold=value should be odd number**
 example: **python imgtool.py --action=threshold --threshold=5** 
+
+### Blur
+**python imgtool.py --action=blur --blur=11** - default blur value is 5, **--blur=value should be odd number**
+
 
 ---
 
