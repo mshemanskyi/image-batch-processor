@@ -5,7 +5,7 @@ Functions:
 - change image file format
 - threshold
 - blur
-- resize*
+- resize
 - grayscale*
 - rotate*
 - mirroring*
@@ -21,6 +21,7 @@ Functions:
     - [Change image file format](#change-image-file-format)
     - [Threshold](#threshold)
     - [Blur](#blur)
+    - [Resize](#resize)
 - [Dependencies](#dependencies)
 
 ## Install
@@ -53,6 +54,8 @@ example: **python imgtool.py --action=threshold --threshold=5**
 ### Blur
 **python imgtool.py --action=blur --blur=11** - default blur value is 5, **--blur=value should be odd number**
 
+### Resize
+**python imgtool.py --action=resize --scale=25** - default scale value is 50%
 
 ---
 

@@ -3,6 +3,7 @@ import os
 from datetime import datetime
 from action.threshold import thresholdImage
 from action.blur import blurImage
+from action.resize import resizeImage
 
 class ImageProcessor():
 
@@ -18,6 +19,7 @@ class ImageProcessor():
         threshType = params['threshType']
         ThreshConstant = int(params['thresholdConstant'])
         extension = params['extension']
+        scale = int(params['scale'])
         action = params['action']
 
         saveOriginal = False
@@ -26,6 +28,8 @@ class ImageProcessor():
             processedImage = thresholdImage(img, blur, threshold, threshAdaptiveMethod, threshType, ThreshConstant)
         elif action == "blur":
             processedImage = blurImage(img, blur)
+        elif action == "resize":
+            processedImage = resizeImage(img, scale)
         else:
             processedImage = img
         ##### func end
