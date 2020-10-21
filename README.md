@@ -6,8 +6,7 @@ Functions:
 - threshold
 - blur
 - resize
-- grayscale*
-- rotate*
+- rotate
 - mirroring*
 - Image Blending (whater sign)*
 - Image Denoising*
@@ -22,6 +21,7 @@ Functions:
     - [Threshold](#threshold)
     - [Blur](#blur)
     - [Resize](#resize)
+    - [Rotate](#rotate)
 - [Dependencies](#dependencies)
 
 ## Install
@@ -56,6 +56,9 @@ example: **python imgtool.py --action=threshold --threshold=5**
 
 ### Resize
 **python imgtool.py --action=resize --scale=25** - default scale value is 50%
+
+### Rotate
+**python imgtool.py --action=rotate --degree=25** - default degree value is 90
 
 ---
 

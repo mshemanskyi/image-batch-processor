@@ -1,10 +1,6 @@
 import cv2 as cv
-import numpy as np
 
 def thresholdImage(img, blur, threshold, threshAdaptiveMethod, threshType, const):
-    kernel = np.ones((2, 2), np.uint8)
-    img = cv.dilate(img, kernel, iterations=1)
-
     img_grey = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     blur = cv.medianBlur(img_grey, blur)
     thresholdImg = cv.adaptiveThreshold(blur, 255, getAdaptiveThresholdMethod(threshAdaptiveMethod),
