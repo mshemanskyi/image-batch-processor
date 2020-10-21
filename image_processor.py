@@ -4,6 +4,7 @@ from datetime import datetime
 from action.threshold import thresholdImage
 from action.blur import blurImage
 from action.resize import resizeImage
+from action.rotate import rotateImage
 
 class ImageProcessor():
 
@@ -20,6 +21,7 @@ class ImageProcessor():
         ThreshConstant = int(params['thresholdConstant'])
         extension = params['extension']
         scale = int(params['scale'])
+        degree = int(params['degree'])
         action = params['action']
 
         saveOriginal = False
@@ -30,6 +32,8 @@ class ImageProcessor():
             processedImage = blurImage(img, blur)
         elif action == "resize":
             processedImage = resizeImage(img, scale)
+        elif action == "rotate":
+            processedImage = rotateImage(img, degree)
         else:
             processedImage = img
         ##### func end
