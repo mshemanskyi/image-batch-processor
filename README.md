@@ -7,7 +7,7 @@ Functions:
 - blur
 - resize
 - rotate
-- mirroring*
+- mirroring
 - Image Blending (whater sign)*
 - Image Denoising*
 
@@ -22,6 +22,7 @@ Functions:
     - [Blur](#blur)
     - [Resize](#resize)
     - [Rotate](#rotate)
+    - [Mirorring](#mirroring)
 - [Dependencies](#dependencies)
 
 ## Install
@@ -59,6 +60,9 @@ example: **python imgtool.py --action=threshold --threshold=5**
 
 ### Rotate
 **python imgtool.py --action=rotate --degree=25** - default degree value is 90
+
+### Mirroring
+**python imgtool.py --action=mirror** - horizontal mirroring only
 
 ---
 
