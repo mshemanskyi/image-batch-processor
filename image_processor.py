@@ -5,6 +5,7 @@ from action.threshold import thresholdImage
 from action.blur import blurImage
 from action.resize import resizeImage
 from action.rotate import rotateImage
+from action.mirror import mirrorImage
 
 class ImageProcessor():
 
@@ -34,6 +35,8 @@ class ImageProcessor():
             processedImage = resizeImage(img, scale)
         elif action == "rotate":
             processedImage = rotateImage(img, degree)
+        elif action == "mirror":
+            processedImage = mirrorImage(img)
         else:
             processedImage = img
         ##### func end
