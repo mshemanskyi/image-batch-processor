@@ -22,7 +22,19 @@ def watermarkImage(img, watermark):
 
 
 def watermarkText(img, text):
-    print(text)
-    return img
+
+    overlay = img.copy()
+
+    h,w = img.shape[:2]
+    font = cv.FONT_HERSHEY_SIMPLEX
+    bottomLeftCornerOfText = (w - (len(text) * 10 + 150), h - 10)
+    fontScale = 1
+    fontColor = (255,255,255, 0.25)
+    lineType = 2
+
+    cv.putText(img,text, bottomLeftCornerOfText, font, fontScale, fontColor, lineType)
+    alpha = 0.7
+
+    return cv.addWeighted(overlay, alpha, img, 1 - alpha, 0)
 
 

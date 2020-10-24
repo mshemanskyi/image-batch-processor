@@ -8,7 +8,7 @@ Functions:
 - resize
 - rotate
 - mirroring
-- watermarking3
+- watermarking
 - Image Denoising*
 
 *TBD
@@ -66,7 +66,9 @@ example: **python imgtool.py --action=threshold --threshold=5**
 **python imgtool.py --action=mirror** - horizontal mirroring only
 
 ### Watermarking
-**python imgtool.py --action=watermark --watermarkImage=path to image** - add watermark to bottom left corner
+**python imgtool.py --action=watermark --watermarkImage=path to image** - add watermark image to bottom left corner
+
+**python imgtool.py --action=watermark --watermarkText=some text** - add watermark text to bottom left corner
 
 ---
 
