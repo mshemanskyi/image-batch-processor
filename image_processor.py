@@ -6,6 +6,7 @@ from action.blur import blurImage
 from action.resize import resizeImage
 from action.rotate import rotateImage
 from action.mirror import mirrorImage
+from action.watermark import addWatermark
 
 class ImageProcessor():
 
@@ -23,6 +24,8 @@ class ImageProcessor():
         extension = params['extension']
         scale = int(params['scale'])
         degree = int(params['degree'])
+        watermarkImage = params['watermarkImage']
+        watermarkText = params['watermarkText']
         action = params['action']
 
         saveOriginal = False
@@ -37,6 +40,8 @@ class ImageProcessor():
             processedImage = rotateImage(img, degree)
         elif action == "mirror":
             processedImage = mirrorImage(img)
+        elif action == "watermark":
+            processedImage = addWatermark(img, watermarkImage, watermarkText)
         else:
             processedImage = img
         ##### func end

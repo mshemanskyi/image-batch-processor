@@ -8,7 +8,7 @@ Functions:
 - resize
 - rotate
 - mirroring
-- Image Blending (whater sign)*
+- watermarking3
 - Image Denoising*
 
 *TBD
@@ -23,6 +23,7 @@ Functions:
     - [Resize](#resize)
     - [Rotate](#rotate)
     - [Mirorring](#mirroring)
+    - [Watermarking](#watermarking)
 - [Dependencies](#dependencies)
 
 ## Install
@@ -63,6 +64,9 @@ example: **python imgtool.py --action=threshold --threshold=5**
 
 ### Mirroring
 **python imgtool.py --action=mirror** - horizontal mirroring only
+
+### Watermarking
+**python imgtool.py --action=watermark --watermarkImage=path to image** - add watermark to bottom left corner
 
 ---
 

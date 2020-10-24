@@ -5,7 +5,18 @@ from images_watcher import ImagesWatcher
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "", ["path=", "blur=", "threshold=", "watch", "extension=", "scale=", "degree=", "action="])
+        opts, args = getopt.getopt(sys.argv[1:], "", 
+        [
+            "path=", 
+            "blur=", 
+            "threshold=", 
+            "watch", 
+            "extension=", 
+            "scale=", 
+            "degree=", 
+            "watermarkImage=", 
+            "watermarkText=", 
+            "action="])
     except getopt.GetoptError as err:
         print(err)
         sys.exit(2)
@@ -20,6 +31,8 @@ def main():
     extension = ""
     scale = ""
     degree = ""
+    watermarkImage = ""
+    watermarkText = ""
     action = ""
 
     for opt, arg in opts:
@@ -47,6 +60,10 @@ def main():
             scale = arg
         elif opt in ("--degree"):
             degree = arg
+        elif opt in ("--watermarkImage"):
+            watermarkImage = arg
+        elif opt in ("--watermarkText"):
+            watermarkText = arg
         elif opt in ("--action"):
             action = arg
 
@@ -62,6 +79,8 @@ def main():
         'extension': extension if extension else "png",
         'scale': scale if scale else 50,
         'degree': degree if degree else 90,
+        'watermarkImage': watermarkImage,
+        'watermarkText': watermarkText,
         'action': action if action else "default"
     }
 
