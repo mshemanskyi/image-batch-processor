@@ -10,7 +10,7 @@ Functions:
 - mirroring
 - watermarking
 
-
+---
 
 - [Install](#install)
 - [Run](#run)
