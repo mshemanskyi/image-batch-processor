@@ -9,9 +9,6 @@ Functions:
 - rotate
 - mirroring
 - watermarking
-- Image Denoising*
-
-*TBD
 
 
 
@@ -69,6 +66,25 @@ example: **python imgtool.py --action=threshold --threshold=5**
 **python imgtool.py --action=watermark --watermarkImage=path to image** - add watermark image to bottom left corner
 
 **python imgtool.py --action=watermark --watermarkText=some text** - add watermark text to bottom left corner
+
+---
+
+## Flags
+|  Flag | Description   | Default   | Example  |
+| ------------ | ------------ | ------------ | ------------ |
+| --path     | Path to images | input  | --path=/folderName|
+| --watch   | Observe folder for the new files  | False  | --watch |
+| --threshhold | Threshold value | 11 | --threshold=11 (should be odd) |
+| --blur | Blur value | 5 | --blur=5 (should be odd) |
+| --threshAdaptiveMethod | [Documentation](https://docs.opencv.org/master/d7/d1b/group__imgproc__misc.html#gaa42a3e6ef26247da787bf34030ed772c) | ADAPTIVE_THRESH_MEAN_C | --threshAdaptiveMethod=ADAPTIVE_THRESH_GAUSSIAN_C |
+| --threshType | [Documentation](https://docs.opencv.org/master/d7/d1b/group__imgproc__misc.html#gaa9e58d2860d4afa658ef70a9b1115576) | THRESH_BINARY | --threshType=THRESH_TOZERO |
+| --thresholdConstant | | 2 | --thresholdConstant=2 |
+| --extension | extension of the output files | png | --extension=jpg |
+| --scale | scale persantage | 50 | --scale=25 |
+| --degree | Rotation degree | 90 | --degree=45 |
+| --watermarkImage | Path to watermark logo | - | --watermarkImage=path |
+| --watermarkText | watermark text | -  | --watermarkText=some text |
+| --action | User should chose concrete action  | defult | --action=watermark --watermarkText=some text |
 
 ---
 
