@@ -1,4 +1,4 @@
-# CLI image processing tool
+# Image Batch Processor
 CLI tool for batch processing images with ability to listen directory for the new files.
 
 Functions:
