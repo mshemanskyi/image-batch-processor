@@ -2,7 +2,7 @@ import unittest
 from action.resize import resizeImage
 import cv2 as cv
 
-class blurTest((unittest.TestCase)):
+class ResizeTest((unittest.TestCase)):
 
     @classmethod
     def setUpClass(self):
