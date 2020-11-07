@@ -1,5 +1,6 @@
 ﻿import cv2 as cv
 import os
+import sys
 from datetime import datetime
 from action.threshold import thresholdImage
 from action.blur import blurImage
@@ -15,6 +16,10 @@ class ImageProcessor():
             imagePath = imagePath.replace('/','\\')
 
         img = cv.imread(imagePath,1)
+
+        if img is None:
+            print('NO IMAGE. Check image path.')
+            sys.exit(2)
 
         blur = int(params['blur'])
         threshold = int(params['threshold'])
