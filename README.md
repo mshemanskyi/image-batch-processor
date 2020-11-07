@@ -50,7 +50,9 @@ Available formats:
 ### Threshold
 **python imgtool.py --action=threshold**  - threshhold images.
 default threshold value is 11, to set another value use flag **--threshold=value should be odd number**
-example: **python imgtool.py --action=threshold --threshold=5** 
+example: **python imgtool.py --action=threshold --threshold=5**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FSGVbA85Cv8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Blur
 **python imgtool.py --action=blur --blur=11** - default blur value is 5, **--blur=value should be odd number**
