@@ -16,6 +16,9 @@ class ImagesWatcher:
     def run(self):
         #On Start, check if any images exists in folder
         for filename in os.listdir(self.__src_path):
+            if filename == '.keep':
+                continue
+
             filePath = os.path.join(self.__src_path, filename)
 
             ImageProcessor.do(self, filePath, self.params)
