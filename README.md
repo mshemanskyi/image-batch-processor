@@ -53,7 +53,9 @@ default threshold value is 11, to set another value use flag **--threshold=value
 example: **python imgtool.py --action=threshold --threshold=5**
 
 ![threshold video](https://img.youtube.com/vi/FSGVbA85Cv8/0.jpg)
+
 https://youtu.be/FSGVbA85Cv8
+
 
 ### Blur
 **python imgtool.py --action=blur --blur=11** - default blur value is 5, **--blur=value should be odd number**
